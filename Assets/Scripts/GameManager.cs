@@ -8,9 +8,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    //intent: store menus and sound fx for the game in here
+    
     void Start()
     {
-        
+        //here is where the menus need to be set to:
+        //MainMenu = enabled
+        //Pause = disabled
     }
 
     // Update is called once per frame
@@ -22,8 +27,10 @@ public class GameManager : MonoBehaviour
 
     void isPaused()
     {
-        if(Input.GetKey(KeyCode.Return)){
+        if(Input.GetKey(KeyCode.Return)){ //there's a better way to do this, this is just a placeholder for the better version
             Time.timeScale = 0; 
+            //enabled PauseScreen
+            //escape button to close the pause screen
         }else{
             Time.timeScale = 1; 
         }

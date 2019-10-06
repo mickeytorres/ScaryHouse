@@ -10,6 +10,12 @@ public class TriggerJob : MonoBehaviour
     //trigger jobs: display text & control "hits" 
     //put on the "monster" objects
 
+    //this holds, timers, text, and enabled/disabled gameObjects. 
+
+    //TODO: 
+    //create timer within the triggers to destroy the monsters
+    //make player stay put so they cna't just run away (might be solved in level design instead)
+
     [SerializeField] private TextMeshProUGUI braveText; 
 
     int score;
