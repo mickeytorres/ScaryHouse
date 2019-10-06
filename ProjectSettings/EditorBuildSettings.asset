@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/physicsTextScene.unity
+    path: Assets/Scenes/GameScreen.unity
     guid: 1fedde1aba68a4b96842b9f954c01dd7
   m_configObjects: {}

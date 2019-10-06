@@ -26,9 +26,11 @@ public class TriggerJob : MonoBehaviour
             if(gameObject.CompareTag("Low Hit")) //low hits = 5 spacebar hits
             {
                 braveText.text = "I've gotten this far...";
+                Debug.Log("Low Hit, 5 presses");
                 if(score >= 10)
                 {
                     Destroy(gameObject); 
+                    braveText.text = "Was that supposed to be scary?";
                 }
 
             }
@@ -36,9 +38,11 @@ public class TriggerJob : MonoBehaviour
              if(gameObject.CompareTag("Mid Hit")) //mid hits = 8 spacebar hits
             {
                 braveText.text = "Mom? Can't we skip this house?";
+                Debug.Log("Mid Hit, 8 presses");
                 if(score >= 16)
                 {
-                    Destroy(gameObject); 
+                    Destroy(gameObject);
+                    braveText.text = "That wasn't that scary."; 
                 }
 
             }
@@ -46,9 +50,11 @@ public class TriggerJob : MonoBehaviour
             if(gameObject.CompareTag("High Hit")) //high hits = 10 spacebar hits
             {
                 braveText.text = "Gotta run."; //how the difficulty is displayed
-                if(score >= 22)
+                 Debug.Log("High Hit, 10 presses");
+                if(score >= 20)
                 {
-                    Destroy(gameObject); 
+                    Destroy(gameObject);
+                    braveText.text = "Okay, go go go go."; 
                 }
 
             }

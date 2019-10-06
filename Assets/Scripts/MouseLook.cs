@@ -19,6 +19,7 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
 
+        //eventually this will be if the MainMenu panel is disabled, then the cursor will be locked & hidden
         Cursor.lockState = CursorLockMode.Locked; //locks the cursor to stay in the middle of the screen
         Cursor.visible = false; //hides our ugly lil cursor so we never see it during the game, because it's distracting. 
 
