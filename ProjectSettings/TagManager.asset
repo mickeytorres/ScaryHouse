@@ -10,6 +10,7 @@ TagManager:
   - Menu Panel
   - Pause Panel
   - End Panel
+  - Candy Bar
   layers:
   - Default
   - TransparentFX

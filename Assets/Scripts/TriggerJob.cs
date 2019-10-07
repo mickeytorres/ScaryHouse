@@ -20,6 +20,7 @@ public class TriggerJob : MonoBehaviour
 
     int score;
 
+
     void Start(){
         braveText.text = "";
         score = 0;
@@ -63,6 +64,16 @@ public class TriggerJob : MonoBehaviour
                     braveText.text = "Okay, go go go go."; 
                 }
 
+            }
+
+            if(gameObject.CompareTag("Candy Bar"))
+            {
+                braveText.text = "Woah! King size?!";
+
+                if(Input.GetKey(KeyCode.Space)){
+                    braveText.text = "I'm never coming here again, though.";
+                    Destroy(gameObject); 
+                }
             }
 
             addPoint();
