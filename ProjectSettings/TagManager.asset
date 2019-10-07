@@ -7,6 +7,9 @@ TagManager:
   - Low Hit
   - Mid Hit
   - High Hit
+  - Menu Panel
+  - Pause Panel
+  - End Panel
   layers:
   - Default
   - TransparentFX
