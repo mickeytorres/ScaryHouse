@@ -40,17 +40,30 @@ public class TriggerJob : MonoBehaviour
             braveText.enabled = true; 
             braveText.text = "Ok Ok Ok. Breathe."; 
 
-            timeIsGoing = true;
+            //HOW DO I FREEZE PLAYER FROM MOVING WHEN THEY ENTER A TRIGGER 
 
-        if(timeIsGoing){
+            timeIsGoing = true;
+            if(timeIsGoing){
             SetTimer(); 
-            if(timer<=0){
-                timer = 0; 
+            if(timer <= 0f){
+                timer = 0f; 
+                timerText.enabled = false; 
                 timeIsGoing = false; 
                 braveText.text = "You ran out of time and Mom is making you move on!\n Press 'R' to try again?"; 
-                gameManager.Restart(); 
+
+                
+                gameManager.GameOverRestart(); //this ends it but it won't restart the game level?  
             }
         }
+
+            if(gameObject.CompareTag("Candy Bar")) //end game object, press enter once to trigger the end! 
+            {
+                timeIsGoing = false; 
+                timerText.text = "";   
+
+                braveText.text = "Trick or treat!\n Press 'Enter' To get your candy & play again!";
+                gameManager.Restart(); 
+            }
 
             if(gameObject.CompareTag("Low Hit")) //low hits = 5 spacebar hits
             {
@@ -88,19 +101,6 @@ public class TriggerJob : MonoBehaviour
 
             }
 
-            if(gameObject.CompareTag("Candy Bar")) //end game object, press spacebar once to trigger the end! 
-            {
-                braveText.text = "Woah! King size?!";
-                if(score >= 2)
-                {
-                    braveText.text = "Trick or treat!\n Press 'R' to play again";
-                    Destroy(gameObject); 
-                    gameManager.Restart(); 
-                    
-                     
-                }
-            }
-
             addPoint();
         }
     }
@@ -119,6 +119,7 @@ public class TriggerJob : MonoBehaviour
     }
 
     void SetTimer(){
+        timerText.enabled = true; 
         timer -= Time.deltaTime;
         timerText.text = timer.ToString("f2"); 
         Debug.Log(timer); 
