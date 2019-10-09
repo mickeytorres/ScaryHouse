@@ -14,7 +14,8 @@ public class TriggerJob : MonoBehaviour
 
     //TODO: 
     //create timer within the triggers to destroy the monsters
-    //make player stay put so they cna't just run away (might be solved in level design instead)
+    //when timer activated, movement is frozen! 
+    //Candy Bar isn't working for some reason, look into it. 
 
     [SerializeField] private TextMeshProUGUI braveText; 
 
@@ -66,13 +67,15 @@ public class TriggerJob : MonoBehaviour
 
             }
 
-            if(gameObject.CompareTag("Candy Bar"))
+            if(gameObject.CompareTag("Candy Bar")) //end game object, press spacebar once to trigger the end! 
             {
                 braveText.text = "Woah! King size?!";
-
-                if(Input.GetKey(KeyCode.Space)){
-                    braveText.text = "I'm never coming here again, though.";
+                if(score >= 2)
+                {
+                    braveText.text = "Trick or treat!\n Press 'R' to play again";
                     Destroy(gameObject); 
+                    
+                     
                 }
             }
 

@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Restart()
+    public void Restart()
     {
         if(Input.GetKey(KeyCode.R))
         {
