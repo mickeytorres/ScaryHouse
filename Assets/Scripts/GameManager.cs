@@ -36,11 +36,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Restart()
+    public void Restart() //only restarts on button press
     {
         if(Input.GetKey(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         }
+    }
+
+    public void GameOverRestart(){ //automatically restarts the game when called 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+    }
+
+    public void Pause(){
+
     }
 }

@@ -16,20 +16,41 @@ public class TriggerJob : MonoBehaviour
     //create timer within the triggers to destroy the monsters
     //when timer activated, movement is frozen! 
     //Candy Bar isn't working for some reason, look into it. 
-
-    [SerializeField] private TextMeshProUGUI braveText; 
+    public GameManager gameManager; 
+    public TextMeshProUGUI braveText; 
+    public TextMeshProUGUI timerText; 
 
     int score;
+
+    public float timer; 
+    public bool timeIsGoing; 
+    
 
 
     void Start(){
         braveText.text = "";
+        timerText.text = "";
         score = 0;
+        timer = 5;
+
+        timeIsGoing = false; 
     }   
     void OnTriggerStay(Collider other){
         if(other.CompareTag("Player")){
             braveText.enabled = true; 
             braveText.text = "Ok Ok Ok. Breathe."; 
+
+            timeIsGoing = true;
+
+        if(timeIsGoing){
+            SetTimer(); 
+            if(timer<=0){
+                timer = 0; 
+                timeIsGoing = false; 
+                braveText.text = "You ran out of time and Mom is making you move on!\n Press 'R' to try again?"; 
+                gameManager.Restart(); 
+            }
+        }
 
             if(gameObject.CompareTag("Low Hit")) //low hits = 5 spacebar hits
             {
@@ -74,6 +95,7 @@ public class TriggerJob : MonoBehaviour
                 {
                     braveText.text = "Trick or treat!\n Press 'R' to play again";
                     Destroy(gameObject); 
+                    gameManager.Restart(); 
                     
                      
                 }
@@ -94,5 +116,11 @@ public class TriggerJob : MonoBehaviour
             score++; //score increases by 2; 
         }
         Debug.Log("Score: " + score); //displays the score in console for us to check how this works out? 
+    }
+
+    void SetTimer(){
+        timer -= Time.deltaTime;
+        timerText.text = timer.ToString("f2"); 
+        Debug.Log(timer); 
     }
 }
