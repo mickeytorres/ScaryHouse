@@ -43,7 +43,22 @@ public class RigidbodyMove : MonoBehaviour
         // }
     }
 
-    void move(){
-         //this might hold the myRB.velocity thing? 
+    void OnTriggerStay(Collider other){
+
+        if(other.gameObject.CompareTag("Low Hit") || 
+           other.gameObject.CompareTag("Mid Hit") || 
+           other.gameObject.CompareTag("High Hit")){
+
+               myRB.constraints = RigidbodyConstraints.FreezePosition; 
+               Debug.Log("Monster found"); 
+
+        }
+
+    }
+
+    void OnTriggerExit (Collider other){
+
+        myRB.constraints = RigidbodyConstraints.None; 
+
     }
 }

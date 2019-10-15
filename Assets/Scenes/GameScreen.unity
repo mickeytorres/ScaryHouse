@@ -153,10 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 23746222}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &23746222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -422,10 +424,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 55451570}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &55451570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1282,10 +1286,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 718674827}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &718674827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1612,6 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10d11e468a80412bac9a7089c9246a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 0
 --- !u!4 &848028269
 Transform:
   m_ObjectHideFlags: 0
@@ -1921,10 +1928,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 1122338724}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!1 &1123582533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,10 +2040,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 1123582534}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!1 &1128136535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,10 +2549,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 1386385101}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &1386385101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2833,10 +2846,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 1492631222}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &1492631222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3671,10 +3686,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 1817514011}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &1817514011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3873,10 +3890,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  _collider: {fileID: 1945502548}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
+  isTrigger: 0
 --- !u!65 &1945502548
 BoxCollider:
   m_ObjectHideFlags: 0

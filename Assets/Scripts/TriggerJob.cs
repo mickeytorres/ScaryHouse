@@ -13,17 +13,19 @@ public class TriggerJob : MonoBehaviour
     //this holds, timers, text, and enabled/disabled gameObjects. 
 
     //TODO: 
-    //create timer within the triggers to destroy the monsters
-    //when timer activated, movement is frozen! 
-    //Candy Bar isn't working for some reason, look into it. 
+    //create timer within the triggers to destroy the monsters DONE
+    //when timer activated, movement is frozen! figure out why player can't move when object is destroyed?? 
+    //Candy Bar isn't working for some reason, look into it.  DONE
     public GameManager gameManager; 
+    public Collider _collider; 
     public TextMeshProUGUI braveText; 
-    public TextMeshProUGUI timerText; 
+    public TextMeshProUGUI timerText;
 
     int score;
 
     public float timer; 
     public bool timeIsGoing; 
+    public bool isTrigger; 
     
 
 
@@ -33,7 +35,8 @@ public class TriggerJob : MonoBehaviour
         score = 0;
         timer = 5;
 
-        timeIsGoing = false; 
+        timeIsGoing = false;
+        _collider.isTrigger = true;   
     }   
     void OnTriggerStay(Collider other){
         if(other.CompareTag("Player")){
@@ -71,7 +74,8 @@ public class TriggerJob : MonoBehaviour
                 Debug.Log("Low Hit, 5 presses");
                 if(score >= 10)
                 {
-                    Destroy(gameObject); 
+                    gameObject.SetActive(false); 
+                    _collider.isTrigger = false;
                     braveText.text = "Was that supposed to be scary?";
                 }
 
@@ -83,7 +87,8 @@ public class TriggerJob : MonoBehaviour
                 Debug.Log("Mid Hit, 8 presses");
                 if(score >= 16)
                 {
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
+                    _collider.isTrigger = false; 
                     braveText.text = "That wasn't that scary."; 
                 }
 
@@ -95,7 +100,8 @@ public class TriggerJob : MonoBehaviour
                  Debug.Log("High Hit, 10 presses");
                 if(score >= 20)
                 {
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
+                    _collider.isTrigger = false;
                     braveText.text = "Okay, go go go go."; 
                 }
 
