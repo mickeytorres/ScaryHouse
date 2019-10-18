@@ -13,10 +13,14 @@ public class TriggerJob : MonoBehaviour
     //this holds, timers, text, and enabled/disabled gameObjects. 
 
     //TODO: 
-    //create timer within the triggers to destroy the monsters DONE
     //when timer activated, movement is frozen! figure out why player can't move when object is destroyed?? 
-    //Candy Bar isn't working for some reason, look into it.  DONE
+
     public GameManager gameManager; 
+
+   public  RigidbodyMove rigidbodyMove; 
+
+    public GameObject player; 
+
     public Collider _collider; 
     public TextMeshProUGUI braveText; 
     public TextMeshProUGUI timerText;
@@ -24,8 +28,12 @@ public class TriggerJob : MonoBehaviour
     int score;
 
     public float timer; 
+    public float x = 0.1f;
+    public float y = 0.1f; 
+    public float z = 0.1f; 
     public bool timeIsGoing; 
     public bool isTrigger; 
+    public bool seenMonster; 
     
 
 
@@ -35,30 +43,17 @@ public class TriggerJob : MonoBehaviour
         score = 0;
         timer = 5;
 
+        player = GameObject.Find("player"); 
+      //rigidbodyMove = player.GetComponent<RigidbodyMove>(); 
+
         timeIsGoing = false;
-        _collider.isTrigger = true;   
-    }   
-    void OnTriggerStay(Collider other){
-        if(other.CompareTag("Player")){
-            braveText.enabled = true; 
-            braveText.text = "Ok Ok Ok. Breathe."; 
+        _collider.isTrigger = true; 
+        seenMonster = false;   
+    }  
 
-            //HOW DO I FREEZE PLAYER FROM MOVING WHEN THEY ENTER A TRIGGER 
-
-            timeIsGoing = true;
-            if(timeIsGoing){
-            SetTimer(); 
-            if(timer <= 0f){
-                timer = 0f; 
-                timerText.enabled = false; 
-                timeIsGoing = false; 
-                braveText.text = "You ran out of time and Mom is making you move on!\n Press 'R' to try again?"; 
-
-                
-                gameManager.GameOverRestart(); //this ends it but it won't restart the game level?  
-            }
-        }
-
+    void Update(){
+        if(seenMonster)
+        {
             if(gameObject.CompareTag("Candy Bar")) //end game object, press enter once to trigger the end! 
             {
                 timeIsGoing = false; 
@@ -72,9 +67,10 @@ public class TriggerJob : MonoBehaviour
             {
                 braveText.text = "I've gotten this far...";
                 Debug.Log("Low Hit, 5 presses");
-                if(score >= 10)
+                if(score >= 5)
                 {
-                    gameObject.SetActive(false); 
+                    gameObject.SetActive(false);
+                    rigidbodyMove.moveAgain(); 
                     _collider.isTrigger = false;
                     braveText.text = "Was that supposed to be scary?";
                 }
@@ -84,10 +80,12 @@ public class TriggerJob : MonoBehaviour
              if(gameObject.CompareTag("Mid Hit")) //mid hits = 8 spacebar hits
             {
                 braveText.text = "Mom? Can't we skip this house?";
+                //seenMonster = true;
                 Debug.Log("Mid Hit, 8 presses");
-                if(score >= 16)
+                if(score >= 10)
                 {
                     gameObject.SetActive(false);
+                    rigidbodyMove.moveAgain(); 
                     _collider.isTrigger = false; 
                     braveText.text = "That wasn't that scary."; 
                 }
@@ -97,10 +95,12 @@ public class TriggerJob : MonoBehaviour
             if(gameObject.CompareTag("High Hit")) //high hits = 10 spacebar hits
             {
                 braveText.text = "Gotta run."; //how the difficulty is displayed
+               // seenMonster = true;
                  Debug.Log("High Hit, 10 presses");
-                if(score >= 20)
+                if(score >= 15)
                 {
                     gameObject.SetActive(false);
+                    rigidbodyMove.moveAgain(); 
                     _collider.isTrigger = false;
                     braveText.text = "Okay, go go go go."; 
                 }
@@ -109,20 +109,21 @@ public class TriggerJob : MonoBehaviour
 
             addPoint();
         }
-    }
 
-    void OnTriggerExit(Collider other){
-        if(other.CompareTag("Player")){
-            braveText.enabled = false; 
-        }
-    }
+        if(timeIsGoing)
+        {
+                SetTimer(); 
+                if(timer <= 0f){
+                    timer = 0f; 
+                    timerText.enabled = false; 
+                    timeIsGoing = false; 
+                    braveText.text = "You ran out of time and Mom is making you move on!\n Press 'R' to try again?"; 
 
-    void addPoint(){
-        if(Input.GetKeyDown(KeyCode.Space)){
-            score++; //score increases by 2; 
+                    
+                    gameManager.GameOverRestart(); //this ends it but it won't restart the game level?  
+                }
         }
-        Debug.Log("Score: " + score); //displays the score in console for us to check how this works out? 
-    }
+    } 
 
     void SetTimer(){
         timerText.enabled = true; 
@@ -130,4 +131,26 @@ public class TriggerJob : MonoBehaviour
         timerText.text = timer.ToString("f2"); 
         Debug.Log(timer); 
     }
+
+     void addPoint(){
+        
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                score++; //score increases by 2;
+                transform.localScale -= new Vector3 (x, y, z);  
+            }
+        
+        
+        Debug.Log("Score: " + score); //displays the score in console for us to check how this works out? 
+    }
+    void OnTriggerEnter(Collider other)
+        {
+            if(other.CompareTag("Player"))
+            {
+                braveText.enabled = true; 
+                braveText.text = "Ok Ok Ok. Breathe.";
+                timeIsGoing = true;
+                seenMonster = true;
+            }    
+        }
 }

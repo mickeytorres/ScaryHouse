@@ -10,17 +10,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
 
     //intent: store menus and sound fx for the game in here
-
-    public float delay; 
     
     void Start()
     {
         //here is where the menus need to be set to:
         //MainMenu = enabled
         //Pause = disabled
-
-        delay = 3.0f;
-        Restart();  
         
     }
 
@@ -46,20 +41,13 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Return))
         {
-            StartCoroutine(LoadLevelAfterDelay(delay));
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);  
         }
     }
 
     public void GameOverRestart()
     { //automatically restarts the game when called 
-        StartCoroutine(LoadLevelAfterDelay(delay));
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);  
     }
-
-    IEnumerator LoadLevelAfterDelay(float delay){
-        yield return new WaitForSeconds(delay);
-    }
-
 
 }

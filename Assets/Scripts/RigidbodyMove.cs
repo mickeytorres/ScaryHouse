@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class RigidbodyMove : MonoBehaviour
 {
-//USAGE: put this on a cube with a rigidbody
-// INTENT: let player use WASD/Arrows to move cube around
+// USAGE: put this on a cube with a rigidbody
+// INTENT: let player use WASD/Arrows to move cube around, freeze/unfreeze player movement
+
+// TODO: 
+    // figure out how to unfreeze player movement after gameobject is destroyed
+
     Rigidbody myRB; 
     Vector3 myInput;
 
@@ -28,19 +32,15 @@ public class RigidbodyMove : MonoBehaviour
         myInput = horizontal * transform.right;
         myInput += vertical * transform.forward;
 
+         
     }
 
     //fixedUpdate is like Update, but for physics, funs at a different update speed. 
     void FixedUpdate()
     {
-        // myRB.AddForce(myInput * 100f); good for spaceships/cars/boats, etc, they don't start up and slide around.  (addForce)
 
         myRB.velocity = myInput * 4f;
         
-        // if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightCommand)){
-        //     myRB.velocity = myInput * 30f; //increases the speed overall when player holds down shift
-        //     //this isn't working, so what's a better way to do it? 
-        // }
     }
 
     void OnTriggerStay(Collider other){
@@ -49,16 +49,18 @@ public class RigidbodyMove : MonoBehaviour
            other.gameObject.CompareTag("Mid Hit") || 
            other.gameObject.CompareTag("High Hit")){
 
-               myRB.constraints = RigidbodyConstraints.FreezePosition; 
+               myRB.isKinematic = true; //player definitely freezes, but they can't move after the object is detroyed? 
                Debug.Log("Monster found"); 
+               Debug.Log(other.gameObject.name); 
 
         }
 
     }
 
-    void OnTriggerExit (Collider other){
-
-        myRB.constraints = RigidbodyConstraints.None; 
-
+    public void moveAgain()
+    {
+        myRB.isKinematic = false;
+        Debug.Log("Moved again");  
     }
+
 }

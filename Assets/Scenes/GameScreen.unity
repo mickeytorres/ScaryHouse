@@ -153,12 +153,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 23746222}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &23746222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -424,12 +427,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 55451570}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &55451570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1286,12 +1292,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 718674827}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &718674827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1303,8 +1312,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6924795, y: 5.595291, z: 3.0180252}
-  m_Center: {x: -0.09533656, y: 2.2976458, z: -0.43383074}
+  m_Size: {x: 1.6924795, y: 5.595291, z: 2.1292133}
+  m_Center: {x: -0.09533627, y: 2.2976458, z: 0.010575721}
 --- !u!23 &718674828
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1928,12 +1937,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 1122338724}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!1 &1123582533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,12 +2052,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 0}
+  player: {fileID: 1703404229}
   _collider: {fileID: 1123582534}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!1 &1128136535
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,12 +2564,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 1386385101}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &1386385101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2846,12 +2864,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 1492631222}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &1492631222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3686,12 +3707,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 1703404234}
+  player: {fileID: 1703404229}
   _collider: {fileID: 1817514011}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &1817514011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3890,12 +3914,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 848028268}
+  rigidbodyMove: {fileID: 0}
+  player: {fileID: 0}
   _collider: {fileID: 1945502548}
   braveText: {fileID: 267641726}
   timerText: {fileID: 47019518}
   timer: 0
   timeIsGoing: 0
   isTrigger: 0
+  seenMonster: 0
 --- !u!65 &1945502548
 BoxCollider:
   m_ObjectHideFlags: 0
