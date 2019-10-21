@@ -49,9 +49,7 @@ public class RigidbodyMove : MonoBehaviour
            other.gameObject.CompareTag("Mid Hit") || 
            other.gameObject.CompareTag("High Hit")){
 
-               myRB.isKinematic = true; //player definitely freezes, but they can't move after the object is detroyed? 
-               Debug.Log("Monster found"); 
-               Debug.Log(other.gameObject.name); 
+               noMove(); 
 
         }
 
@@ -61,6 +59,12 @@ public class RigidbodyMove : MonoBehaviour
     {
         myRB.isKinematic = false;
         Debug.Log("Moved again");  
+    }
+
+    public void noMove()
+    {
+        myRB.isKinematic = true; 
+        Debug.Log("Monster found");
     }
 
 }

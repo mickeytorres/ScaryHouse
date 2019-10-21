@@ -10,12 +10,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
 
     //intent: store menus and sound fx for the game in here
+
+    public GameObject menuPanel; 
+
+    public RigidbodyMove rigidbodyMove;
     
     void Start()
     {
         //here is where the menus need to be set to:
         //MainMenu = enabled
         //Pause = disabled
+        menuPanel.SetActive(true);
+        Time.timeScale = 0;  
+
         
     }
 
@@ -24,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         Restart();
         isPaused(); 
+        menuUp(); 
     }
 
     void isPaused()
@@ -34,6 +42,13 @@ public class GameManager : MonoBehaviour
             //escape button to close the pause screen
         }else{
             Time.timeScale = 1; 
+        }
+    }
+
+    void menuUp(){
+        if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)){
+            menuPanel.SetActive(false);
+            Time.timeScale = 1;   
         }
     }
 

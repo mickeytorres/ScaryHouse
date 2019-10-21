@@ -19,7 +19,8 @@ public class TriggerJob : MonoBehaviour
 
    public  RigidbodyMove rigidbodyMove; 
 
-    public GameObject player; 
+    public GameObject player;
+    public GameObject endMenu;  
 
     public Collider _collider; 
     public TextMeshProUGUI braveText; 
@@ -42,6 +43,7 @@ public class TriggerJob : MonoBehaviour
         timerText.text = "";
         score = 0;
         timer = 5;
+        endMenu.SetActive(false); 
 
         player = GameObject.Find("player"); 
       //rigidbodyMove = player.GetComponent<RigidbodyMove>(); 
@@ -60,7 +62,7 @@ public class TriggerJob : MonoBehaviour
                 timerText.text = "";   
 
                 braveText.text = "Trick or treat!\n Press 'Enter' To get your candy & play again!";
-                gameManager.Restart(); 
+                endGame();  
             }
 
             if(gameObject.CompareTag("Low Hit")) //low hits = 5 spacebar hits
@@ -117,10 +119,7 @@ public class TriggerJob : MonoBehaviour
                     timer = 0f; 
                     timerText.enabled = false; 
                     timeIsGoing = false; 
-                    braveText.text = "You ran out of time and Mom is making you move on!\n Press 'R' to try again?"; 
-
-                    
-                    gameManager.GameOverRestart(); //this ends it but it won't restart the game level?  
+                    gameManager.GameOverRestart(); 
                 }
         }
     } 
@@ -153,4 +152,9 @@ public class TriggerJob : MonoBehaviour
                 seenMonster = true;
             }    
         }
+
+    void endGame(){
+        endMenu.SetActive(true); 
+        gameManager.Restart(); 
+    }
 }
